@@ -13,8 +13,6 @@ if (!$login){
     // die();
 }
 
-
-
 $password = $_POST['password'];
 $repassword = $_POST['repassword'];
 
@@ -34,8 +32,6 @@ try {
 
 // il faut chercher le login dans la BD, on ne veut pas de doublons!
 
-
-
 // Lancer l'insertion de l'utilisateur dans le tableau "user"
 $sql = "INSERT INTO utilisateur (id, nom, login, password) VALUES " .
     "(null , :nom , :login , :password) ";
@@ -43,15 +39,13 @@ $stmt = $cnx->prepare ($sql);
 $stmt->bindValue (":nom", $nom);
 $stmt->bindValue (":login", $login);
 
-
 $password = password_hash($password, PASSWORD_DEFAULT, ['cost' => 12]);
 
 $stmt->bindValue (":password", $password);
 
 $stmt->execute ();
 
-// Si tout ok , on va vers l'accueil après 
-// avoir stocké le login dans la session
-// (utiliser $stmt->errorInfo())
-
+session_start();
+$_SESSION['loginConnecte'] = $login;
+header ('location: ./index.php');
 ?>
