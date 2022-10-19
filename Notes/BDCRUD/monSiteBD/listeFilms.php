@@ -31,10 +31,6 @@ $arrayRes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // 5. Afficher los données selon nos besoins
 
-
-
-
-
 foreach ($arrayRes as $film) {
 
         echo '<div class="card" style="width: 10rem;">';
@@ -45,7 +41,9 @@ foreach ($arrayRes as $film) {
         echo '</div>';
         echo "<a href ='./effacerFilm.php?id=" . $film['id']. "'>Effacer</a>&nbsp";
         echo "<a href ='./index.php?p=updateFilm&id=" . $film['id']. "'>Modifier</a>";
+        echo "<p class='coeur' data-id ='" .$film['id']. "'>&#10084;</p>";
 }
+echo '<script src="./main.js"></script>';
 
 
 
