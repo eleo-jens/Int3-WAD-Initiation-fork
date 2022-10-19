@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 18, 2022 at 01:42 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Hôte : 127.0.0.1
+-- Généré le : mer. 19 oct. 2022 à 15:01
+-- Version du serveur : 10.4.25-MariaDB
+-- Version de PHP : 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,15 +18,14 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `wadfilms`
+-- Base de données : `wadfilms`
 --
 CREATE DATABASE IF NOT EXISTS `wadfilms` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `wadfilms`;
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `favori`
+-- Structure de la table `favori`
 --
 
 CREATE TABLE `favori` (
@@ -35,18 +34,10 @@ CREATE TABLE `favori` (
   `idUtilisateur` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `favori`
---
-
-INSERT INTO `favori` (`id`, `idFilm`, `idUtilisateur`) VALUES
-(2, 8, 3),
-(3, 9, 3);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `film`
+-- Structure de la table `film`
 --
 
 CREATE TABLE `film` (
@@ -59,17 +50,18 @@ CREATE TABLE `film` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `film`
+-- Déchargement des données de la table `film`
 --
 
 INSERT INTO `film` (`id`, `titre`, `duree`, `description`, `dateSortie`, `image`) VALUES
-(8, 'Matilda', 0, '', '0000-00-00', '634e5ceae51922022-10-18-09-59-38images.jpg'),
-(9, 'Up', 0, '', '0000-00-00', '634e61cf4530f2022-10-18-10-20-31Up_(2009_film).jpg');
+(12, 'Blonde', 0, '', '0000-00-00', '634ff49397ee32022-10-19-14-58-59MV5BNDk2YTA1MGYtMGNjMi00YTJlLWI1YjItMjBjOGJlZGIwZmYzXkEyXkFqcGdeQXVyODA0MjgyNzM@._V1_FMjpg_UX1000_.jpg'),
+(13, 'The Woman King', 0, '', '0000-00-00', '634ff49e6fe112022-10-19-14-59-10thewomanking_onesheet_1400x2100.jpg'),
+(14, 'Encanto', 0, '', '0000-00-00', '634ff4ae8040e2022-10-19-14-59-26p_encanto_homeent_22359_4892ae1c.jpeg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `utilisateur`
+-- Structure de la table `utilisateur`
 --
 
 CREATE TABLE `utilisateur` (
@@ -80,18 +72,20 @@ CREATE TABLE `utilisateur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `utilisateur`
+-- Déchargement des données de la table `utilisateur`
 --
 
 INSERT INTO `utilisateur` (`id`, `nom`, `login`, `password`) VALUES
-(3, 'wad', 'wad@interface3.be', '$2y$12$qmNA5LChmxFNnF1YrV/3quXujUJS5j9qYCcqKgl.848eKzgtTyQAm');
+(3, 'wad', 'wad@interface3.be', '$2y$12$qmNA5LChmxFNnF1YrV/3quXujUJS5j9qYCcqKgl.848eKzgtTyQAm'),
+(4, 'Ele', 'ele@gmail.com', '$2y$12$3g.aBXl3wYIe7wxYZtce..LbWJJDjMBhiphN7369rOHlhQ0dHIuCS'),
+(6, 'maya', 'maya@gmail.com', '$2y$12$y.P1Y1dHh/R25pOKG8Uh5eNNFEfR4BuWyoanUS1ER/MBJd9hM6aM6');
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `favori`
+-- Index pour la table `favori`
 --
 ALTER TABLE `favori`
   ADD PRIMARY KEY (`id`),
@@ -99,45 +93,45 @@ ALTER TABLE `favori`
   ADD KEY `idUtilisateur` (`idUtilisateur`);
 
 --
--- Indexes for table `film`
+-- Index pour la table `film`
 --
 ALTER TABLE `film`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `utilisateur`
+-- Index pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `favori`
+-- AUTO_INCREMENT pour la table `favori`
 --
 ALTER TABLE `favori`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
--- AUTO_INCREMENT for table `film`
+-- AUTO_INCREMENT pour la table `film`
 --
 ALTER TABLE `film`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `utilisateur`
+-- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `favori`
+-- Contraintes pour la table `favori`
 --
 ALTER TABLE `favori`
   ADD CONSTRAINT `favori_ibfk_1` FOREIGN KEY (`idFilm`) REFERENCES `film` (`id`) ON DELETE CASCADE,
