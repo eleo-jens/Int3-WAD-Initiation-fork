@@ -1,7 +1,3 @@
-
-
-
-
 <?php
 
 // 1. Créer une connexion à la BD
