@@ -17,7 +17,7 @@ document.querySelectorAll(".coeur").forEach((elem) => {
 
           if (reponse.statut == "off") {
             p.innerHTML = "";
-            p.innerHTML = "&#10085;";
+            p.innerHTML = "&#10084;";
           } else {
             p.innerHTML = "";
             p.innerHTML = "&#10084;";
